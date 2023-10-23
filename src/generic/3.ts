@@ -3,8 +3,12 @@
   Використовуйте generics, щоб вказати, що ці об'єкти можуть бути будь-якого типу.
 */
 
-function merge (objA, objB) {
-  return Object.assign(objA, objB);
+function merge<T, U>(objA: T, objB: U): T & U {
+  return { ...objA, ...objB };
 }
+
+const object1 = { a: 1, b: 2 };
+const object2 = { c: 3, d: 4 };
+const mergedObject = merge(object1, object2); 
 
 export {}
